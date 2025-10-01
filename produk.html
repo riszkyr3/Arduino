@@ -6,54 +6,7 @@
     <title>Produk - Arduino R3</title>
     <link rel="stylesheet" href="apalah.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        /* Dropdown kategori */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: #fff;
-            min-width: 180px;
-            box-shadow: 0 8px 24px rgba(44,62,80,0.12);
-            z-index: 100;
-            border-radius: 8px;
-            margin-top: 8px;
-            padding: 0.5rem 0;
-        }
-        .dropdown-content a {
-            color: #2c3e50;
-            padding: 10px 20px;
-            text-decoration: none;
-            display: block;
-            font-weight: 500;
-            transition: background 0.2s, color 0.2s;
-        }
-        .dropdown-content a:hover {
-            background: #3498db;
-            color: #fff;
-        }
-        .dropdown:hover .dropdown-content,
-        .dropdown:focus-within .dropdown-content {
-            display: block;
-        }
-        /* Untuk nav agar dropdown tidak menutup saat dihover */
-        nav ul {
-            position: relative;
-            z-index: 10;
-        }
-        @media (max-width: 800px) {
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                margin-top: 0;
-            }
-        }
-    </style>
     <script>
-        // Simulasi interaksi tambah ke keranjang
         function addToCart(productName) {
             alert('Produk "' + productName + '" telah ditambahkan ke keranjang!');
         }
@@ -101,12 +54,12 @@
         </div>
     </section>
 
-    <!-- MICROCONTROLLER -->
+
     <section id="microcontroller" class="categories" style="background:#fff;">
         <div class="container">
             <h2 class="section-title">Microcontroller</h2>
             <div class="category-grid">
-                <!-- Arduino Uno R3 -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <a href="https://store.arduino.cc/products/arduino-uno-rev3" target="_blank">
@@ -122,7 +75,7 @@
                     <button class="btn-cart" onclick="addToCart('Arduino Uno R3')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                     <a href="https://store.arduino.cc/products/arduino-uno-rev3" target="_blank" class="btn btn-outline" style="margin-top:0.5rem;">Detail</a>
                 </div>
-                <!-- Arduino Nano Every -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <a href="https://store.arduino.cc/products/arduino-nano-every" target="_blank">
@@ -139,7 +92,7 @@
                     <button class="btn-cart" onclick="addToCart('Arduino Nano Every')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                     <a href="https://store.arduino.cc/products/arduino-nano-every" target="_blank" class="btn btn-outline" style="margin-top:0.5rem;">Detail</a>
                 </div>
-                <!-- Arduino Mega 2560 -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <a href="https://store.arduino.cc/products/arduino-mega-2560-rev3" target="_blank">
@@ -155,7 +108,7 @@
                     <button class="btn-cart" onclick="addToCart('Arduino Mega 2560')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                     <a href="https://store.arduino.cc/products/arduino-mega-2560-rev3" target="_blank" class="btn btn-outline" style="margin-top:0.5rem;">Detail</a>
                 </div>
-                <!-- Arduino MKR WAN 1310 -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <a href="https://store.arduino.cc/products/arduino-mkr-wan-1310" target="_blank">
@@ -171,7 +124,7 @@
                     <button class="btn-cart" onclick="addToCart('Arduino MKR WAN 1310')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                     <a href="https://store.arduino.cc/products/arduino-mkr-wan-1310" target="_blank" class="btn btn-outline" style="margin-top:0.5rem;">Detail</a>
                 </div>
-                <!-- Arduino Portenta H7 -->
+              
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <a href="https://store.arduino.cc/products/portenta-h7" target="_blank">
@@ -191,12 +144,12 @@
         </div>
     </section>
 
-    <!-- MODULE & KOMUNIKASI -->
+
     <section id="module" class="categories" style="background:#f8f9fa;">
         <div class="container">
             <h2 class="section-title">Module & Komunikasi</h2>
             <div class="category-grid">
-                <!-- ESP8266 WiFi Module -->
+       
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <a href="https://store.arduino.cc/products/esp8266-module" target="_blank">
@@ -212,7 +165,7 @@
                     <button class="btn-cart" onclick="addToCart('ESP8266 WiFi Module')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                     <a href="https://store.arduino.cc/products/esp8266-module" target="_blank" class="btn btn-outline" style="margin-top:0.5rem;">Detail</a>
                 </div>
-                <!-- HC-05 Bluetooth Module -->
+ 
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <img src="https://www.electronicwings.com/public/images/user_images/images/HC-05%20Bluetooth%20Module/HC-05-Bluetooth-Module.png" alt="HC-05 Bluetooth Module" style="width:60px;height:60px;object-fit:contain;">
@@ -223,7 +176,7 @@
                     <div style="font-weight:bold; color:#e74c3c; margin-bottom:0.5rem;">Rp 55.000</div>
                     <button class="btn-cart" onclick="addToCart('HC-05 Bluetooth Module')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                 </div>
-                <!-- NRF24L01 Wireless Module -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <img src="https://cdn.sparkfun.com//assets/parts/1/1/2/3/00690-01.jpg" alt="NRF24L01 Wireless Module" style="width:60px;height:60px;object-fit:contain;">
@@ -238,12 +191,12 @@
         </div>
     </section>
 
-    <!-- SENSOR -->
+
     <section id="sensor" class="categories" style="background:#fff;">
         <div class="container">
             <h2 class="section-title">Sensor</h2>
             <div class="category-grid">
-                <!-- Sensor DHT11 -->
+ 
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <a href="https://store.arduino.cc/products/dht11-temperature-and-humidity-sensor" target="_blank">
@@ -259,7 +212,7 @@
                     <button class="btn-cart" onclick="addToCart('Sensor DHT11')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                     <a href="https://store.arduino.cc/products/dht11-temperature-and-humidity-sensor" target="_blank" class="btn btn-outline" style="margin-top:0.5rem;">Detail</a>
                 </div>
-                <!-- Sensor Ultrasonik HC-SR04 -->
+     
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <img src="https://cdn.sparkfun.com//assets/parts/1/1/2/3/13959-01.jpg" alt="HC-SR04 Ultrasonic Sensor" style="width:60px;height:60px;object-fit:contain;">
@@ -270,7 +223,7 @@
                     <div style="font-weight:bold; color:#e74c3c; margin-bottom:0.5rem;">Rp 22.000</div>
                     <button class="btn-cart" onclick="addToCart('HC-SR04 Ultrasonic Sensor')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                 </div>
-                <!-- Sensor LDR -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <img src="https://www.electronicwings.com/public/images/user_images/images/LDR/LDR.png" alt="LDR Sensor" style="width:60px;height:60px;object-fit:contain;">
@@ -281,7 +234,7 @@
                     <div style="font-weight:bold; color:#e74c3c; margin-bottom:0.5rem;">Rp 5.000</div>
                     <button class="btn-cart" onclick="addToCart('LDR Sensor')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                 </div>
-                <!-- Sensor Gas MQ-2 -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <img src="https://www.electronicwings.com/public/images/user_images/images/MQ2%20Gas%20Sensor/MQ2-Gas-Sensor.png" alt="MQ-2 Gas Sensor" style="width:60px;height:60px;object-fit:contain;">
@@ -296,12 +249,12 @@
         </div>
     </section>
 
-    <!-- DISPLAY -->
+
     <section id="display" class="categories" style="background:#f8f9fa;">
         <div class="container">
             <h2 class="section-title">Display</h2>
             <div class="category-grid">
-                <!-- LCD 16x2 -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <img src="https://www.electronicwings.com/public/images/user_images/images/LCD%2016x2/LCD-16x2.png" alt="LCD 16x2" style="width:60px;height:60px;object-fit:contain;">
@@ -312,7 +265,7 @@
                     <div style="font-weight:bold; color:#e74c3c; margin-bottom:0.5rem;">Rp 35.000</div>
                     <button class="btn-cart" onclick="addToCart('LCD 16x2')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                 </div>
-                <!-- OLED 0.96" I2C -->
+
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <img src="https://www.electronicwings.com/public/images/user_images/images/OLED%20Display/OLED-Display.png" alt="OLED 0.96 I2C" style="width:60px;height:60px;object-fit:contain;">
@@ -323,7 +276,6 @@
                     <div style="font-weight:bold; color:#e74c3c; margin-bottom:0.5rem;">Rp 55.000</div>
                     <button class="btn-cart" onclick="addToCart('OLED 0.96 I2C')"><i class="fas fa-cart-plus"></i> Keranjang</button>
                 </div>
-                <!-- 7 Segment Display -->
                 <div class="category-card fade-in stagger-delay">
                     <div class="category-icon tooltip">
                         <img src="https://www.electronicwings.com/public/images/user_images/images/Seven%20Segment%20Display/Seven-Segment-Display.png" alt="7 Segment Display" style="width:60px;height:60px;object-fit:contain;">
