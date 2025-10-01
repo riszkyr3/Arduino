@@ -1,0 +1,110 @@
+<html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Keranjang Belanja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="apalah.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="notif"></div>
+    <div class="container">
+        <div class="cart-title">
+            <i class="fas fa-shopping-cart"></i>
+            <h1>Keranjang Belanja</h1>
+        </div>
+        <div style="display:flex; gap:12px; margin-bottom:18px; z-index:2; position:relative;">
+            <a href="index.html" class="nav-btn">
+                <i class="fas fa-home"></i> Beranda
+            </a>
+            <a href="produk.html" class="nav-btn">
+                <i class="fas fa-box"></i> Lihat Produk Lainnya
+            </a>
+        </div>
+        <div class="highlight-info">
+            <i class="fas fa-info-circle"></i>
+            Pastikan data pengiriman dan email kamu benar agar pesanan cepat diproses. Semua produk Arduino original & bergaransi!
+        </div>
+        <form id="checkout-form" autocomplete="off">
+            <div class="form-section">
+                <h2><i class="fas fa-user"></i> Data Pemesan</h2>
+                <div class="form-group">
+                    <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required placeholder="Nama lengkap">
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="email" name="email" required placeholder="email@domain.com">
+                </div>
+                <div class="form-hint">Email digunakan untuk mengirimkan invoice & status pesanan.</div>
+                <div class="form-group">
+                    <label for="alamat"><i class="fas fa-map-marker-alt"></i> Alamat Pengiriman</label>
+                    <textarea id="alamat" name="alamat" required placeholder="Alamat lengkap"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="telp"><i class="fas fa-phone"></i> No. HP/WA</label>
+                    <input type="tel" id="telp" name="telp" required placeholder="08xxxxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label for="catatan"><i class="fas fa-sticky-note"></i> Catatan</label>
+                    <textarea id="catatan" name="catatan" placeholder="(Opsional)"></textarea>
+                </div>
+            </div>
+            <hr class="divider">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produk</th>
+                        <th>Harga</th>
+                        <th>Jumlah</th>
+                        <th>Subtotal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Arduino Uno R3</td>
+                        <td class="price" data-value="250000">Rp250.000</td>
+                        <td>
+                            <input type="number" class="qty" value="1" min="1">
+                        </td>
+                        <td class="subtotal">Rp250.000</td>
+                        <td>
+                            <button type="button" class="remove-btn">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Arduino Nano Every</td>
+                        <td class="price" data-value="180000">Rp180.000</td>
+                        <td>
+                            <input type="number" class="qty" value="2" min="1">
+                        </td>
+                        <td class="subtotal">Rp360.000</td>
+                        <td>
+                            <button type="button" class="remove-btn">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ESP8266 WiFi Module</td>
+                        <td class="price" data-value="45000">Rp45.000</td>
+                        <td>
+                            <input type="number" class="qty" value="3" min="1">
+                        </td>
+                        <td class="subtotal">Rp135.000</td>
+                        <td>
+                            <button type="button" class="remove-btn">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="total">
+                Total: Rp745.000
+            </div>
+            <button class="checkout-btn" type="submit">
+                <i class="fas fa-credit-card"></i> Checkout
+            </button>
+        </form>
+    </div>
+</body>
+</html>
