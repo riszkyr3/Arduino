@@ -1,4 +1,3 @@
-<html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <div class="notif"></div>
+    <div id="notif" class="notif"></div>
     <div class="container">
         <div class="cart-title">
             <i class="fas fa-shopping-cart"></i>
@@ -62,7 +61,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="cart-body">
                     <tr>
                         <td>Arduino Uno R3</td>
                         <td class="price" data-value="250000">Rp250.000</td>
@@ -98,13 +97,108 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="total">
-                Total: Rp745.000
-            </div>
-            <button class="checkout-btn" type="submit">
+            <div id="empty-placeholder" class="empty" style="display:none;">Keranjang kosong — tambahkan produk di halaman produk.</div>
+            <div class="total" id="cart-total">Total: Rp0</div>
+            <button class="checkout-btn" id="checkout-btn" type="submit">
                 <i class="fas fa-credit-card"></i> Checkout
             </button>
         </form>
     </div>
+
+    <script>
+        (function () {
+            const formatRupiah = num => 'Rp' + String(num).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            const tbody = document.getElementById('cart-body');
+            const totalEl = document.getElementById('cart-total');
+            const notif = document.getElementById('notif');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const emptyPlaceholder = document.getElementById('empty-placeholder');
+
+            function showNotif(message, type) {
+                notif.textContent = message;
+                notif.className = 'notif show ' + (type || 'info');
+                setTimeout(() => notif.className = 'notif ' + (type || 'info'), 3000);
+            }
+
+            function updateRowSubtotal(row) {
+                const priceEl = row.querySelector('.price');
+                const qtyEl = row.querySelector('.qty');
+                const subtotalEl = row.querySelector('.subtotal');
+                const price = parseInt(priceEl.getAttribute('data-value'), 10) || 0;
+                const qty = Math.max(1, parseInt(qtyEl.value, 10) || 1);
+                const subtotal = price * qty;
+                subtotalEl.textContent = formatRupiah(subtotal);
+                return subtotal;
+            }
+
+            function updateTotal() {
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                let total = 0;
+                rows.forEach(r => total += updateRowSubtotal(r));
+                totalEl.textContent = 'Total: ' + formatRupiah(total);
+                if (rows.length === 0) {
+                    emptyPlaceholder.style.display = 'block';
+                    checkoutBtn.disabled = true;
+                } else {
+                    emptyPlaceholder.style.display = 'none';
+                    checkoutBtn.disabled = false;
+                }
+            }
+
+            updateTotal();
+
+            tbody.addEventListener('input', e => {
+                if (e.target.matches('.qty')) {
+                    if (parseInt(e.target.value, 10) <= 0) e.target.value = 1;
+                    updateTotal();
+                }
+            });
+
+            tbody.addEventListener('click', e => {
+                if (e.target.matches('.remove-btn')) {
+                    const row = e.target.closest('tr');
+                    const name = row.cells[0].textContent.trim();
+                    row.remove();
+                    updateTotal();
+                    showNotif(name + ' dihapus dari keranjang', 'success');
+                }
+            });
+
+            document.getElementById('checkout-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = this.querySelector('#nama').value.trim();
+                const email = this.querySelector('#email').value.trim();
+                const alamat = this.querySelector('#alamat').value.trim();
+                const telp = this.querySelector('#telp').value.trim();
+                const rows = tbody.querySelectorAll('tr');
+
+                if (!name || !email || !alamat || !telp) {
+                    showNotif('Lengkapi semua data pemesan.', 'error');
+                    return;
+                }
+                if (rows.length === 0) {
+                    showNotif('Keranjang kosong.', 'error');
+                    return;
+                }
+
+                let order = [];
+                let total = 0;
+                rows.forEach(r => {
+                    const title = r.cells[0].textContent.trim();
+                    const price = parseInt(r.querySelector('.price').getAttribute('data-value'), 10);
+                    const qty = parseInt(r.querySelector('.qty').value, 10);
+                    const subtotal = price * qty;
+                    total += subtotal;
+                    order.push({ title, price, qty, subtotal });
+                });
+
+                showNotif('Pesanan berhasil diproses! Invoice dikirim ke ' + email, 'success');
+
+                tbody.innerHTML = '';
+                updateTotal();
+                this.reset();
+            });
+        })();
+    </script>
 </body>
 </html>
